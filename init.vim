@@ -5,11 +5,7 @@ require "plugins"
 EOF
 
 call plug#begin()
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
 
-Plug 'williamboman/mason.nvim'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -20,11 +16,6 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
-
-
-Plug 'ellisonleao/gruvbox.nvim'
-
-Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 " You can revert the settings after the call like so:

@@ -29,6 +29,12 @@ return require('packer').startup(function(use)
 		  })
 	  end,
   })
+  use 'ellisonleao/gruvbox.nvim'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
   use 'ray-x/go.nvim'
   use 'preservim/nerdtree'
   use 'dyng/ctrlsf.vim'
