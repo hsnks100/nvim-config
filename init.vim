@@ -33,16 +33,10 @@ call plug#end()
 
 
 "autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-
-
-
-
 nnoremap <c-k> <C-U>
 nnoremap <c-j> <C-D>
 vnoremap <c-k> <C-U>
 vnoremap <c-j> <C-D>
-
-
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 vnoremap <F7> "ay
@@ -56,6 +50,7 @@ colorscheme gruvbox
 
 lua << EOF
 require "set"
+require "lsp"
 EOF
 
 
