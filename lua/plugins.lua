@@ -1,11 +1,15 @@
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 
 vim.g.mapleader = ','
 --vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use {
+	  "ray-x/lsp_signature.nvim",
+  }
+  -- use 'fatih/vim-go'
 
   -- Use dependency and run lua function after load
   use {
@@ -29,13 +33,14 @@ return require('packer').startup(function(use)
 		  })
 	  end,
   })
-  use 'ellisonleao/gruvbox.nvim'
+  -- use 'ellisonleao/gruvbox.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
   use 'ray-x/go.nvim'
+  vim.g.NERDTreeFileLines = 1
   use 'preservim/nerdtree'
   use 'dyng/ctrlsf.vim'
   use 'ray-x/guihua.lua' -- recommanded if need floating window support
@@ -43,7 +48,13 @@ return require('packer').startup(function(use)
   config = function() 
   end,
   })
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+  use 'xuyuanp/scrollbar.nvim'
+  use 'preservim/tagbar'
+
 end)
+
 
 
 
