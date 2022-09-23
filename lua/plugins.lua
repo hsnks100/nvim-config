@@ -12,10 +12,13 @@ return require('packer').startup(function(use)
   -- use 'fatih/vim-go'
 
   -- Use dependency and run lua function after load
-  use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
+  -- use {
+	--   'lewis6991/gitsigns.nvim',
+	--   config = function() require('gitsigns').setup{ 
+	-- 	  current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+	--   }
+  -- end
+  -- }
 
   -- You can specify multiple plugins in a single call
   use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
@@ -41,7 +44,7 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'ray-x/go.nvim'
   vim.g.NERDTreeFileLines = 1
-  use 'preservim/nerdtree'
+  use 'hsnks100/nerdtree'
   use 'dyng/ctrlsf.vim'
   use 'ray-x/guihua.lua' -- recommanded if need floating window support
   use ({'jlanzarotta/bufexplorer', 

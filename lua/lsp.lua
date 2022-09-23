@@ -9,6 +9,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+	vim.keymap.set('n', 'gc', vim.lsp.buf.incoming_calls, bufopts)
 	vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
 	vim.keymap.set('n', '<space>wl', function()
@@ -119,7 +120,14 @@ require('lspconfig')['rust_analyzer'].setup{
 	flags = lsp_flags,
 	-- Server-specific settings...
 	settings = {
-		["rust-analyzer"] = {}
+		["rust-analyzer"] = {},
+		workspace = {
+			symbol = {
+				search = {
+					kind = "all_symbols"
+				}
+			}
+		}
 	}
 }
 
@@ -169,6 +177,8 @@ require'lspconfig'.clangd.setup{
 -- or use command
 vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
+
+
 
 
 

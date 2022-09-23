@@ -22,6 +22,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
 
+Plug 'f-person/git-blame.nvim'
+
+
+
 " Use release branch (recommend)
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:miniBufExplMapWindowNavVim = 1 
@@ -128,3 +132,11 @@ augroup ScrollbarInit
   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
 augroup end
+
+hi IncSearch	guifg=#000000 guibg=#2050d0							ctermfg=darkblue ctermbg=gray
+let HlUnderCursor=1
+autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+
+
