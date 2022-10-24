@@ -35,6 +35,8 @@ return require("packer").startup(function(use)
 	use("nvim-tree/nvim-tree.lua")
 	use("nvim-lualine/lualine.nvim")
 	use({ "jlanzarotta/bufexplorer", config = function() end })
+	use({ "rking/ag.vim" })
+	use("dyng/ctrlsf.vim")
 
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
@@ -43,6 +45,8 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-path")
 
 	use("ray-x/go.nvim")
+	use("ray-x/guihua.lua") -- recommanded if need floating window support
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
@@ -53,9 +57,15 @@ return require("packer").startup(function(use)
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
 	-- configuring lsp servers
+	use("lukas-reineke/lsp-format.nvim")
+
 	use("neovim/nvim-lspconfig") -- easily configure language servers
+	use({
+		"ray-x/lsp_signature.nvim",
+	})
+
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	use({ "hsnks100/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -70,6 +80,14 @@ return require("packer").startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

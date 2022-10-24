@@ -1,7 +1,7 @@
-require("plugins.plugin-setup")
 require("core.options")
 require("core.keymaps")
 require("core.colorscheme")
+require("plugins.plugin-setup")
 require("plugins.comment")
 require("plugins.nvim-tree")
 require("plugins.lualine")
@@ -12,7 +12,9 @@ require("plugins.lsp.mason")
 require("plugins.lsp.lspsaga")
 require("plugins.lsp.lspconfig")
 require("plugins.lsp.null-ls")
+require("plugins.lsp.rust")
 
 require("plugins.treesitter")
+require("plugins.ctrlsf")
 -- require("josean.plugins.gitsigns")
 --
