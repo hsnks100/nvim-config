@@ -16,5 +16,19 @@ require("plugins.lsp.rust")
 
 require("plugins.treesitter")
 require("plugins.ctrlsf")
--- require("josean.plugins.gitsigns")
---
+
+local prevTab = 0
+function KsooTab()
+	print("kt")
+	return "<Tab>"
+	-- return vim.fn.getcmdline()
+end
+
+local keymap = vim.keymap
+keymap.set("c", "<CR>", function()
+	if vim.fn.wildmenumode() == 1 then
+		return "<C-y>"
+	else
+		return "<CR>"
+	end
+end, { expr = true, remap = true, noremap = true })

@@ -25,7 +25,8 @@ end
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim")
-
+	use("f-person/git-blame.nvim")
+	use("timonv/vim-cargo")
 	use("bluz71/vim-nightfly-guicolors")
 	use("christoomey/vim-tmux-navigator")
 	use("szw/vim-maximizer")
@@ -84,7 +85,11 @@ return require("packer").startup(function(use)
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({})
+			require("trouble").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
 		end,
 	})
 

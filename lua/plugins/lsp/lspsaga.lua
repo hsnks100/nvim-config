@@ -18,6 +18,6 @@ saga.init_lsp_saga({
 	definition_action_keys = {
 		edit = "<CR>",
 	},
-	preview_lines_above = 5,
+	preview_lines_above = 20,
 	max_preview_lines = 20,
 })
