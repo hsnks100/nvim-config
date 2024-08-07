@@ -17,8 +17,8 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 opt.autochdir = false
 
-vim.cmd([[
-
-let HlUnderCursor=1
-autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
-	]])
+-- vim.cmd([[
+--
+-- let HlUnderCursor=1
+-- autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
+-- 	]])

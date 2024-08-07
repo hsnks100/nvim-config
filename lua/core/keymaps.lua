@@ -11,8 +11,11 @@ keymap.set("n", "<leader>tp", ":tabp<CR>")
 keymap.set("n", "<leader>tn", ":tabn<CR>")
 
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
-keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>")
-
+keymap.set("n", "<leader>n", ":NERDTree<CR>")
+keymap.set("n", "<c-h>", "<c-w>h")
+keymap.set("n", "<c-l>", "<c-w>l")
+keymap.set("n", "<c-k>", "<c-w>k")
+keymap.set("n", "<c-j>", "<c-w>j")
 keymap.set("n", "<leader>e", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
@@ -27,38 +30,11 @@ nmap <leader>grr <Plug>ReplaceWithRegisterLine
 xmap <leader>gr <Plug>ReplaceWithRegisterVisual
 ]])
 
+
 -- my muscle memory
 --
 
 -- remove map [*, ]*, because I use keymap [: C-d, ]: C-d
-function RemoveMapWithPrefix(prefix)
-	local aa = vim.api.nvim_exec(":map", true)
-	local aa2 = vim.split(aa, "\n", true)
-	for _, v in pairs(aa2) do
-		local s = string.gsub(v, "%s+", " ")
-		print(s)
-		s = vim.split(s, " ", true)
-		if s[2] and string.sub(s[2], 1, #prefix) == prefix then
-			if #s[2] > #prefix then
-				local command = ":unmap <buffer>" .. s[2]
-				print(command)
-				vim.api.nvim_exec(command, true)
-				-- command = ":unmap " .. s[2]
-				-- vim.api.nvim_exec(command, true)
-			end
-		end
-	end
-end
-
-vim.api.nvim_exec(
-	[[
-"autocmd BufEnter *.rs :silent! lua RemoveMapWithPrefix("[")
-"autocmd BufEnter *.rs :silent! lua RemoveMapWithPrefix("]")
-"autocmd BufEnter *.go :silent! lua RemoveMapWithPrefix("[")
-"autocmd BufEnter *.go :silent! lua RemoveMapWithPrefix("]")
-]],
-	false
-)
 
 local function get_visual_selection()
 	local s_start = vim.fn.getpos("'<")
@@ -76,8 +52,9 @@ end
 
 keymap.set("n", "8", "<C-u>zz")
 keymap.set("n", "9", "<C-d>zz")
+keymap.set("v", "8", "<C-u>zz")
+keymap.set("v", "9", "<C-d>zz")
 
-vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>feR", "<cmd>luafile ~/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>fed", "<cmd>e ~/.config/nvim/<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>cd %:p:h<CR>")
